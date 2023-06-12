@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venera</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/images/icon.png}">
+    <link rel="stylesheet" th:href="@{/styles/admin.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<form th:action="@{/login}" method="post" th:object="${admin}">
+    <p th:if="${error != null}" th:text="${error}"></p>
+    <label class="subtitle" th:for="name">Jméno</label>
+    <input type="text" th:field="*{name}">
+    <label class="subtitle" th:for="password">Heslo</label>
+    <input type="text" th:field="*{password}">
+    <button class="submit-btn" type="submit">Přihlásit se</button>
+</form>
+</body>
+</html>

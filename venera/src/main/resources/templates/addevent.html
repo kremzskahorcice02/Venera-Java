@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venera</title>
+  <link rel="icon" type="image/x-icon" th:href="@{/images/icon.png}">
+  <link rel="stylesheet" th:href="@{/styles/admin.css}"/>
+  <meta charset="utf-8"/>
+</head>
+<body>
+<form th:action="@{|/${hash}/event/add|}" method="post">
+  <p>Nová akce</p>
+  <label class="subtitle" for="title">Název (není povinné)</label>
+  <input type="text" name="title" id="title">
+  <label class="subtitle" for="date">Datum</label>
+  <input type="date" name="date" id="date" required>
+  <label for="city">Město</label>
+  <input type="text" name="city" id="city" required>
+  <label for="place">Kde</label>
+  <input type="text" name="place" id="place" required>
+  <label for="otherArtists">Další kapely (není povinné)</label>
+  <input type="text" name="otherArtists" id="otherArtists">
+  <label for="url">Link na akci (není povinné)</label>
+  <input type="url" name="url" id="url">
+  <button class="submit-btn" type="submit">Přidat</button>
+</form>
+</body>
+</html>

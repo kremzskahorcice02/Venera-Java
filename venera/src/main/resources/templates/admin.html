@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venera</title>
+  <link rel="icon" type="image/x-icon" th:href="@{/images/icon.png}">
+  <link rel="stylesheet" th:href="@{/styles/admin.css}"/>
+  <meta charset="utf-8"/>
+</head>
+<body>
+  <div class="events-admin">
+    <h2>Koncerty</h2>
+    <a th:href="@{|/${hash}/event/add|}">Přidat akci</a>
+    <div th:each="event : ${allEvents}" th:if="${!allEvents.isEmpty()}">
+      <h3 th:if="${event.title != null}" th:text="${event.title}"></h3>
+      <p th:text="${event.date}"></p>
+      <p><span th:text="${event.city}"></span><span th:text="|, ${event.place}|"></span></p>
+      <p th:if="${event.otherArtists != null}" th:text="${event.otherArtists}"></p>
+      <a th:if="${event.url != null || !event.url.isEmpty()}" th:href="@{${event.url}}">Link na akci</a>
+    </div>
+    <p th:unless="${!allEvents.isEmpty()}">Zatím nejsou naplanované žádné akce</p>
+  </div>
+</body>
+</html>
